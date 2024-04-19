@@ -17,7 +17,15 @@ function createMainWindow() {
     icon: "./assets/icons/Icon_256x256.png",
     resizable: isDev ? true : false,
     backgroundColor: "white",
+    webPreferences: {
+      nodeIntegration: true,
+      contextIsolation: false,
+    },
   });
+
+  if (isDev) {
+    mainWindow.webContents.openDevTools();
+  }
 
   mainWindow.loadFile("./app/index.html");
 }
@@ -30,6 +38,9 @@ function createAboutWindow() {
     icon: "./assets/icons/Icon_256x256.png",
     resizable: false,
     backgroundColor: "white",
+    webPreferences: {
+      nodeIntegration: true,
+    },
   });
 
   aboutWindow.loadFile("./app/about.html");
