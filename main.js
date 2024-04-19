@@ -49,6 +49,10 @@ function createAboutWindow() {
     },
   });
 
+  // Set menu for aboutWindow
+  const aboutMenu = Menu.buildFromTemplate([]);
+  aboutWindow.setMenu(aboutMenu);
+
   aboutWindow.loadFile("./app/about.html");
 }
 
